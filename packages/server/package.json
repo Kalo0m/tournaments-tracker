@@ -1,0 +1,8 @@
+{
+  "name": "@tenup-finder/server",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "@tenup-finder/find-tournaments": "workspace:*"
+  }
+}
