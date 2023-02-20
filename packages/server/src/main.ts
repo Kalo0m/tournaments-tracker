@@ -5,13 +5,13 @@
 
 import express from 'express';
 import * as path from 'path';
-import {} from '@tenup-finder/find-tournaments';
+import { findTournaments } from '@tenup-finder/find-tournaments';
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/api', (_, res) => {
-  res.send({ message: 'Welcome to server!' });
+app.get('/api', async (_, res) => {
+  res.send(await findTournaments());
 });
 
 const port = 3333;
