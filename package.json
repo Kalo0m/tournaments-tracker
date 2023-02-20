@@ -5,13 +5,10 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
-    "@nrwl/nx-cloud": "latest",
     "@types/node": "^18.14.0",
     "nx": "15.7.2",
     "prettier": "^2.6.2",
     "typescript": "~4.8.2"
   },
-  "dependencies": {
-    "@nrwl/js": "15.8.0-beta.1"
-  }
+  "dependencies": {}
 }
