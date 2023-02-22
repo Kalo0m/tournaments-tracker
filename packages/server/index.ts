@@ -1,11 +1,11 @@
 import Fastify from 'fastify';
-import { findTournaments } from '@tenup-finder/find-tournaments';
+import { findTournaments } from 'find-tournaments';
 // CommonJs
-const fastify = require('fastify')({
+const fastify = Fastify({
   logger: true,
 });
 
-fastify.get('/', async (request, reply) => {
+fastify.get('/', async () => {
   return findTournaments();
 });
 
@@ -14,6 +14,7 @@ fastify.get('/', async (request, reply) => {
  */
 const start = async () => {
   try {
+    console.log('Starting server...');
     await fastify.listen({ port: 3000 });
   } catch (err) {
     fastify.log.error(err);

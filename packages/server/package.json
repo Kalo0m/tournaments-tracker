@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node index.ts",
+    "build": "tsc index.ts --outdir dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "fastify": "^4.13.0",
-    "@tenup-finder/find-tournaments": "workspace:*"
+    "find-tournaments": "0.0.1",
+    "vite": "^4.1.3"
   }
 }

@@ -1,9 +1,9 @@
 {
-  "name": "@tenup-finder/find-tournaments",
+  "name": "find-tournaments",
   "version": "0.0.1",
-  "type": "commonjs",
+  "main": "src/lib/find-tournaments.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc src/lib/find-tournaments.ts --outdir dist"
   },
   "dependencies": {
     "@types/node": "^18.14.0",
