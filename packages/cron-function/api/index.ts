@@ -9,6 +9,7 @@ const mailjet = Mailjet.apiConnect(
 );
 
 export default async function handler(_: any, res: any) {
+  console.log('cron');
   const knownTournaments = await db.tournament.findMany({
     select: { id: true },
   });
