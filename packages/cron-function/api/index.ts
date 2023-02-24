@@ -8,7 +8,7 @@ const mailjet = Mailjet.apiConnect(
   process.env['MJ_APIKEY_PRIVATE']
 );
 
-export default async function hello(_: any, res: any) {
+export default async function handler(_: any, res: any) {
   const knownTournaments = await db.tournament.findMany({
     select: { id: true },
   });
