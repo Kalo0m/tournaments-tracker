@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "database": "workspace:*",
-    "find-tournaments": "workspace:0.0.1",
+    "find-tournaments": "workspace:*",
     "node-mailjet": "^6.0.2",
     "vercel": "^28.16.7"
   }
