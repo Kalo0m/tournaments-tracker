@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^4.13.0",
-    "find-tournaments": "0.0.1",
+    "find-tournaments": "workspace:0.0.1",
     "vite": "^4.1.3"
   }
 }
