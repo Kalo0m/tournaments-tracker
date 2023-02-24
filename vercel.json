@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "packages/cron-function/api/index",
+      "schedule": "0 5 * * *"
+    }
+  ]
+}
