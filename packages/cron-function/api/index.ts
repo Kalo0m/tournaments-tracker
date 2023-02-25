@@ -24,6 +24,8 @@ export default async function handler(_: any, res: any) {
     city: tournament.tournoi.nomClub,
   }));
 
+  console.log(tournaments);
+
   const newTournaments = tournaments.filter(
     (tournament) =>
       !knownTournaments.find((known) => known.id === tournament.id)
