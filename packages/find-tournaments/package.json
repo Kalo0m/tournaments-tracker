@@ -2,9 +2,7 @@
   "name": "find-tournaments",
   "version": "0.0.1",
   "main": "src/lib/find-tournaments.ts",
-  "scripts": {
-    "build": "tsc src/lib/find-tournaments.ts --outdir dist"
-  },
+  "scripts": {},
   "dependencies": {
     "@types/node": "^18.14.0",
     "vite": "^4.1.3",
