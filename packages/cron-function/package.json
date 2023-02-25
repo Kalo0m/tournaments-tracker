@@ -12,6 +12,7 @@
   "dependencies": {
     "database": "workspace:*",
     "find-tournaments": "workspace:*",
+    "is-odd": "workspace:*",
     "node-mailjet": "^6.0.2",
     "vercel": "^28.16.7"
   }

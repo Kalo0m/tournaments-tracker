@@ -26,11 +26,13 @@ importers:
     specifiers:
       database: workspace:*
       find-tournaments: workspace:*
+      is-odd: workspace:*
       node-mailjet: ^6.0.2
       vercel: ^28.16.7
     dependencies:
       database: link:../database
       find-tournaments: link:../find-tournaments
+      is-odd: link:../is-odd
       node-mailjet: 6.0.2
       vercel: 28.16.7
 
@@ -56,6 +58,9 @@ importers:
       vite-tsconfig-paths: 4.0.5
       vitest: 0.28.5
       zod: 3.20.6
+
+  packages/is-odd:
+    specifiers: {}
 
   packages/server:
     specifiers:
