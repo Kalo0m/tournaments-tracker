@@ -15,15 +15,14 @@ export default async function handler(_: any, res: any) {
     select: { id: true },
   });
 
-  const tournaments: Prisma.TournamentCreateInput[] = (
-    await findTournaments()
-  ).results.list.map((tournament) => ({
-    id: tournament.tournoi.id,
-    name: tournament.tournoi.libelle,
-    startDate: new Date(tournament.tournoi.dateDebut.date),
-    endDate: new Date(tournament.tournoi.dateFin.date),
-    city: tournament.tournoi.nomClub,
-  }));
+  const tournaments: Prisma.TournamentCreateInput[] = await findTournaments();
+  // ).results.list.map((tournament) => ({
+  //   id: tournament.tournoi.id,
+  //   name: tournament.tournoi.libelle,
+  //   startDate: new Date(tournament.tournoi.dateDebut.date),
+  //   endDate: new Date(tournament.tournoi.dateFin.date),
+  //   city: tournament.tournoi.nomClub,
+  // }));
 
   console.log(test());
   const newTournaments = tournaments.filter(

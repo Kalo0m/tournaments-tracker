@@ -8,5 +8,5 @@ export async function findTournaments() {
   // console.log(data);
   // // schema.parse(data);
   // return data[3] as Tournaments;
-  return [] as Tournaments;
+  return [];
 }
