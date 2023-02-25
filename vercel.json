@@ -4,14 +4,5 @@
       "path": "/packages/cron-function/api/index",
       "schedule": "0 5 * * *"
     }
-  ],
-  "builds": [
-    {
-      "src": "packages/cron-function",
-      "use": "@vercel/node",
-      "config": {
-        "skipBuild": true
-      }
-    }
   ]
 }
