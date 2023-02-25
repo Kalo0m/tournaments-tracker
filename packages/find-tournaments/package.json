@@ -1,8 +1,14 @@
 {
-  "name": "find-tournaments",
-  "version": "0.0.1",
-  "main": "src/lib/find-tournaments.ts",
-  "scripts": {},
+  "name": "is-odd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@types/node": "^18.14.0",
     "zod": "^3.20.6"
