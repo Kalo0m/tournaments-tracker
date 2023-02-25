@@ -1,5 +1,4 @@
-import { findTournaments } from 'find-tournaments';
-import { PrismaClient, Prisma } from 'database';
+import { PrismaClient, Prisma, Tournament } from 'database';
 const Mailjet = require('node-mailjet'); //Yes, I used require in typescript like this
 const db = new PrismaClient();
 
@@ -14,18 +13,18 @@ export default async function handler(_: any, res: any) {
     select: { id: true },
   });
 
-  const tournaments: Prisma.TournamentCreateInput[] = (
-    await findTournaments()
-  ).results.list.map((tournament) => ({
-    id: tournament.tournoi.id,
-    name: tournament.tournoi.libelle,
-    startDate: new Date(tournament.tournoi.dateDebut.date),
-    endDate: new Date(tournament.tournoi.dateFin.date),
-    city: tournament.tournoi.nomClub,
-  }));
+  // const tournaments: Prisma.TournamentCreateInput[] = (
+  //   await findTournaments()
+  // ).results.list.map((tournament) => ({
+  //   id: tournament.tournoi.id,
+  //   name: tournament.tournoi.libelle,
+  //   startDate: new Date(tournament.tournoi.dateDebut.date),
+  //   endDate: new Date(tournament.tournoi.dateFin.date),
+  //   city: tournament.tournoi.nomClub,
+  // }));
 
-  console.log(tournaments);
-
+  // console.log(tournaments);
+  const tournaments: Tournament[] = [];
   const newTournaments = tournaments.filter(
     (tournament) =>
       !knownTournaments.find((known) => known.id === tournament.id)
