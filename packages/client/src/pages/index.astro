@@ -1,0 +1,59 @@
+---
+import Form from '../components/form';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tournois de tennis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-slate-900 p-4 text-white flex flex-col justify-center items-center h-screen"
+  >
+    <h1
+      class="text-3xl lg:text-5xl mb-2 max-w-5xl font-bold text-center text-blue-500"
+    >
+      Soit le premier à t'inscrire aux tournois de <span class="text-yellow-300"
+        >Nantes</span
+      >
+    </h1>
+    <p class="text-slate-500 text-center mb-7 lg:text-base text-sm">
+      Nous t'enverrons un mail quand un tournoi sera disponible dans la région
+      Nantaise
+    </p>
+
+    <Form client:load />
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<script>
+  // const form = document.querySelector('form');
+  // console.log(form);
+  // if (!form) throw new Error('Form not found');
+  // form.addEventListener('submit', (event) => {
+  //   event.preventDefault();
+  //   fetch('/signin', {
+  //     method: 'POST',
+  //     body: new FormData(form),
+  //   })
+  //     .then((a) => a.json())
+  //     .then((a) => );
+  // });
+</script>
