@@ -1,5 +1,6 @@
-import { fetchTournaments } from './fetchTournaments';
 import type { z } from 'zod';
+
+import { fetchTournaments } from './fetchTournaments';
 import type { schema } from './types';
 type Tournaments = z.infer<typeof schema>;
 

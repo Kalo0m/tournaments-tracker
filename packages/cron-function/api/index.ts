@@ -1,18 +1,20 @@
-import { PrismaClient, Prisma } from 'database';
-import { test } from 'is-odd';
+import type { Prisma } from 'database';
+import { PrismaClient } from 'database';
 import { findTournaments } from 'find-tournaments';
-const Mailjet = require('node-mailjet'); //Yes, I used require in typescript like this
+// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, unicorn/prefer-module
+const Mailjet = require('node-mailjet');
 const db = new PrismaClient();
 
 const mailjet = Mailjet.apiConnect(
-  process.env['MJ_APIKEY_PUBLIC'],
-  process.env['MJ_APIKEY_PRIVATE']
+  process.env['MJ_APIKEY_PUBLIC'] ?? '',
+  process.env['MJ_APIKEY_PRIVATE'] ?? ''
 );
 
 export default async function handler(_: any, res: any) {
   console.log('cron');
-
-  mailjet.post('send', { version: 'v3.1' }).request({
+  const a = '';
+  console.log(a);
+  void mailjet.post('send', { version: 'v3.1' }).request({
     Messages: [
       {
         From: {
@@ -28,7 +30,7 @@ export default async function handler(_: any, res: any) {
         Subject: 'Nouveau tournoi disponible !',
         TextPart:
           'Bonjour, un ou plusieurs tournois sont disponibles sur Tenup',
-        HTMLPart: `<h3>Bonne journée</h3>`,
+        HTMLPart: '<h3>Bonne journée</h3>',
       },
     ],
   });
@@ -47,16 +49,15 @@ export default async function handler(_: any, res: any) {
     city: tournament.tournoi.nomClub,
   }));
 
-  console.log(test());
   const newTournaments = tournaments.filter(
     (tournament) =>
-      !knownTournaments.find((known) => known.id === tournament.id)
+      !knownTournaments.some((known) => known.id === tournament.id)
   );
 
   const users = await db.user.findMany({ select: { email: true } });
   console.log(users);
   for (const user of users) {
-    mailjet.post('send', { version: 'v3.1' }).request({
+    void mailjet.post('send', { version: 'v3.1' }).request({
       Messages: [
         {
           From: {
@@ -89,5 +90,5 @@ export default async function handler(_: any, res: any) {
     data: newTournaments,
   });
 
-  res.status(200).json({ message: test() });
+  res.status(200).json({ message: 'send' });
 }
