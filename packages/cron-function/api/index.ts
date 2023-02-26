@@ -11,6 +11,28 @@ const mailjet = Mailjet.apiConnect(
 
 export default async function handler(_: any, res: any) {
   console.log('cron');
+
+  mailjet.post('send', { version: 'v3.1' }).request({
+    Messages: [
+      {
+        From: {
+          Email: 'theo.letouze44@gmail.com',
+          Name: 'Théo Letouzé',
+        },
+        To: [
+          {
+            Email: 'theo.letouze44@gmail.com',
+            Name: 'theo',
+          },
+        ],
+        Subject: 'Nouveau tournoi disponible !',
+        TextPart:
+          'Bonjour, un ou plusieurs tournois sont disponibles sur Tenup',
+        HTMLPart: `<h3>Bonne journée</h3>`,
+      },
+    ],
+  });
+
   const knownTournaments = await db.tournament.findMany({
     select: { id: true },
   });
