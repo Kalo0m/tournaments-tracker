@@ -16,8 +16,3 @@ export async function POST(request: Request) {
   console.log(await db.user.findMany());
   return new Response('Hello world!', { status: 200 });
 }
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
