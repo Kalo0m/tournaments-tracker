@@ -1,6 +1,7 @@
 import type { Prisma } from 'database';
 import { PrismaClient } from 'database';
 import { findTournaments } from 'find-tournaments';
+
 // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, unicorn/prefer-module
 const Mailjet = require('node-mailjet');
 const db = new PrismaClient();
@@ -11,9 +12,6 @@ const mailjet = Mailjet.apiConnect(
 );
 
 export default async function handler(_: any, res: any) {
-  console.log('cron');
-  const a = '';
-  console.log(a);
   void mailjet.post('send', { version: 'v3.1' }).request({
     Messages: [
       {
