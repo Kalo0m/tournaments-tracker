@@ -1,6 +1,5 @@
 {
 	"name": "client",
-	"type": "commonjs",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "astro dev",
@@ -9,7 +8,6 @@
 		"preview": "astro preview",
 		"astro": "astro"
 	},
-	
 	"dependencies": {
 		"@astrojs/react": "^2.0.2",
 		"@astrojs/tailwind": "^3.0.1",
