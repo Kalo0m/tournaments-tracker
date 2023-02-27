@@ -6,11 +6,10 @@
   "scripts": {
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
-    "postinstall": "prisma generate && rollup -c rollup.prisma.config.js"
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
-  "type": "module",
   "license": "ISC",
   "devDependencies": {
     "prisma": "^4.8.1"
