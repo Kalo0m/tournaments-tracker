@@ -6,15 +6,16 @@
   "scripts": {
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate && rollup -c rollup.prisma.config.js"
   },
   "keywords": [],
   "author": "",
+  "type": "module",
   "license": "ISC",
   "devDependencies": {
-    "prisma": "^4.10.1"
+    "prisma": "^4.8.1"
   },
   "dependencies": {
-    "@prisma/client": "^4.10.1"
+    "@prisma/client": "^4.8.1"
   }
 }
