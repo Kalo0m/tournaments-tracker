@@ -1,12 +1,10 @@
-'use client';
-
 import { useCallback, useState } from 'react';
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const onSubmit = (email: string) => {
     console.log('couocu');
-    fetch('/test', {
+    fetch('/api/test', {
       method: 'POST',
       body: email,
       headers: { 'Content-Type': 'application/json' },

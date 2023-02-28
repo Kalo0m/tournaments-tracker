@@ -1,6 +1,6 @@
 import Form from '@/components/form';
-import './globals.css';
-export default async function Home() {
+
+export default function Home() {
   return (
     <main className="bg-slate-900 p-4 text-white flex flex-col justify-center items-center h-screen">
       <h1 className="text-3xl lg:text-5xl mb-2 max-w-5xl font-bold text-center text-blue-500">
