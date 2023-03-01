@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "database": "workspace:*",
+    "dotenv": "^16.0.3",
     "fastify": "^4.13.0",
     "find-tournaments": "workspace:*",
-    "vite": "^4.1.3",
-    "database": "workspace:*"
+    "vite": "^4.1.3"
   }
 }
