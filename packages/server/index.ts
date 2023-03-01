@@ -1,12 +1,32 @@
 import Fastify from 'fastify';
 import { findTournaments } from 'find-tournaments';
+import { PrismaClient } from 'database';
 // CommonJs
+const db = new PrismaClient();
+
 const fastify = Fastify({
   logger: true,
 });
 
 fastify.get('/', async () => {
   return findTournaments();
+});
+
+fastify.post<{
+  Body: { email: string };
+}>('/subscribe', async (req) => {
+  console.log(req);
+
+  if (!req.body.email) {
+    return {
+      error: 'Email is required',
+    };
+  }
+  return db.user.create({
+    data: {
+      email: req.body.email,
+    },
+  });
 });
 
 /**

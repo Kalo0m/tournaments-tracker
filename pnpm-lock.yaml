@@ -77,10 +77,12 @@ importers:
 
   packages/server:
     specifiers:
+      database: workspace:*
       fastify: ^4.13.0
       find-tournaments: workspace:*
       vite: ^4.1.3
     dependencies:
+      database: link:../database
       fastify: 4.13.0
       find-tournaments: link:../find-tournaments
       vite: 4.1.4
