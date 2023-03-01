@@ -1,12 +1,15 @@
 import type { APIRoute } from 'astro';
-import { PrismaClient } from 'database';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 export const post: APIRoute = async ({ request }: any) => {
-  prisma.user.create({
+  console.log(await prisma.user.findMany());
+  const body = await request.json();
+  console.log(body);
+  await prisma.user.create({
     data: {
-      email: request.body,
+      email: body.email,
     },
   });
   return {

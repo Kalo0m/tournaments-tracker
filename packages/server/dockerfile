@@ -1,0 +1,16 @@
+# Définit l'image de base
+FROM node:alpine
+RUN npm install -g pnpm
+
+# Copie les fichiers de l'application dans le conteneur
+WORKDIR /packages
+COPY . .
+
+# Installe les dépendances pour tous les packages
+RUN pnpm install
+
+# Expose le port du serveur
+EXPOSE 3000
+
+# Lance le serveur
+CMD ["pnpm", "run", "start:server"]

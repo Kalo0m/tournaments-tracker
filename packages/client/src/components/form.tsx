@@ -4,7 +4,14 @@ export default function Form() {
   const [email, setEmail] = useState('');
   const onSubmit = (email: string) => {
     console.log('couocu');
-    fetch('/signin', { method: 'POST', body: email });
+    fetch('/signin?email=fehzu', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify({ email }),
+    });
   };
 
   return (
