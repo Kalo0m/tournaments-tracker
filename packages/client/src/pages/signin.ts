@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const post: APIRoute = async ({ request }: any) => {
+  console.log(request);
   const body = await request.json();
   console.log(body);
   await prisma.user.create({
