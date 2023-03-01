@@ -5,13 +5,11 @@ const prisma = new PrismaClient();
 
 export const post: APIRoute = async ({ request }: any) => {
   console.log(await prisma.user.findMany());
-  const body = await request.json();
-  console.log(body);
-  await prisma.user.create({
-    data: {
-      email: body.email,
-    },
-  });
+  // await prisma.user.create({
+  //   data: {
+  //     email: body.email,
+  //   },
+  // });
   return {
     status: 200,
     headers: {
