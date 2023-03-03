@@ -3,20 +3,20 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export const get: APIRoute = async ({ request, url }) => {
-  const email = url.searchParams.get('email');
-  if (!email) {
+export const post: APIRoute = async ({ request, url }) => {
+  const body = await request.json();
+  if (!body.email) {
     return {
       status: 400,
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ message: 'email is required' }),
+      body: JSON.stringify({ message: body.email }),
     };
   }
   await prisma.user.create({
     data: {
-      email,
+      email: body.email,
     },
   });
   return {
@@ -24,6 +24,6 @@ export const get: APIRoute = async ({ request, url }) => {
     headers: {
       'content-type': 'application/json',
     },
-    body: JSON.stringify({ email }),
+    body: JSON.stringify({ email: body.email }),
   };
 };

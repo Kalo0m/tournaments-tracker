@@ -5,7 +5,10 @@ export default function Form() {
   const [email, setEmail] = useState('');
   const { runFirework } = useMemo(useFirework, []);
   const onSubmit = (email: string) => {
-    fetch(`/signin?email=${email}`).then(() => {
+    fetch(`/signin`, {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    }).then(() => {
       setEmail('');
       runFirework();
     });
