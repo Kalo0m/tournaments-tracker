@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export const post: APIRoute = async ({ request, url }) => {
+export const post: APIRoute = async ({ request }) => {
   const body = await request.json();
   if (!body.email) {
     return {
