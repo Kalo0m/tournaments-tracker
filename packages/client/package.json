@@ -18,7 +18,8 @@
 		"prisma": "^4.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"tailwindcss": "^3.2.7"
+		"tailwindcss": "^3.2.7",
+		"@prisma/client": "4.11.0"
 	},
 	"devDependencies": {
 		"@types/canvas-confetti": "^1.6.0",
