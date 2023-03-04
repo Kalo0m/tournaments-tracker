@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import useFirework from './useFireworks';
-
 export default function Form() {
   const [email, setEmail] = useState('');
   const { runFirework } = useMemo(useFirework, []);
@@ -9,12 +8,7 @@ export default function Form() {
     fetch(`/signin`, {
       method: 'POST',
       body: JSON.stringify({ email }),
-    }).then(() => {
-      setEmail('');
-      runFirework();
-    });
-
-
+    }).then(() => (window.location.href = '/success'));
   };
 
   return (

@@ -1,10 +1,9 @@
 import type { APIRoute } from 'astro';
-//import { PrismaClient } from 'database';
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export const post: APIRoute = async ({ request }) => {
+export const post: APIRoute = async ({ request, redirect }) => {
   const body = await request.json();
   if (!body.email) {
     return {
@@ -12,7 +11,7 @@ export const post: APIRoute = async ({ request }) => {
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify({ message: body.email }),
+      body: JSON.stringify({ message: 'You should send your email' }),
     };
   }
   await prisma.user.create({
@@ -25,6 +24,6 @@ export const post: APIRoute = async ({ request }) => {
     headers: {
       'content-type': 'application/json',
     },
-    body: JSON.stringify({ email: body.email }),
+    body: JSON.stringify({ message: `${body.email} subscribed` }),
   };
 };
