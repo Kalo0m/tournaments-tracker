@@ -29,7 +29,6 @@ importers:
       astro: 2.0.17
       canvas-confetti: ^1.6.0
       database: workspace:*
-      prisma: ^4.8.1
       react: ^18.2.0
       react-dom: ^18.2.0
       tailwindcss: ^3.2.7
@@ -37,11 +36,10 @@ importers:
       '@astrojs/react': 2.0.2_3xleytyzprlgycb2ded54tx72i
       '@astrojs/tailwind': 3.0.1_o7rlocdsudmdrstqcqbafrcodq
       '@astrojs/vercel': 3.1.4_astro@2.0.17+react@18.2.0
-      '@prisma/client': 4.11.0_prisma@4.11.0
+      '@prisma/client': 4.11.0
       astro: 2.0.17
       canvas-confetti: 1.6.0
       database: link:../database
-      prisma: 4.11.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tailwindcss: 3.2.7_postcss@8.4.21
@@ -2364,6 +2362,19 @@ packages:
       picocolors: 1.0.0
       tiny-glob: 0.2.9
       tslib: 2.5.0
+    dev: false
+
+  /@prisma/client/4.11.0:
+    resolution: {integrity: sha512-0INHYkQIqgAjrt7NzhYpeDQi8x3Nvylc2uDngKyFDDj1tTRQ4uV1HnVmd1sQEraeVAN63SOK0dgCKQHlvjL0KA==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.11.0-57.8fde8fef4033376662cad983758335009d522acb
     dev: false
 
   /@prisma/client/4.11.0_prisma@4.11.0:
