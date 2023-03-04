@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
-import { PrismaClient } from 'database';
+//import { PrismaClient } from 'database';
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 

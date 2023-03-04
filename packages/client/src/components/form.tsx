@@ -4,6 +4,7 @@ import useFirework from './useFireworks';
 export default function Form() {
   const [email, setEmail] = useState('');
   const { runFirework } = useMemo(useFirework, []);
+
   const onSubmit = (email: string) => {
     fetch(`/signin`, {
       method: 'POST',
@@ -12,6 +13,8 @@ export default function Form() {
       setEmail('');
       runFirework();
     });
+
+
   };
 
   return (
