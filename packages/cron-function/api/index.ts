@@ -30,6 +30,9 @@ export default async function handler(_: any, res: any) {
     (tournament) =>
       !knownTournaments.some((known) => known.id === tournament.id)
   );
+  await db.tournament.createMany({
+    data: newTournaments,
+  });
 
   const users = await db.user.findMany({ select: { email: true } });
   if (newTournaments.length > 0) {
