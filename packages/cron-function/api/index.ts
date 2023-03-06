@@ -72,32 +72,6 @@ export default async function handler(_: any, res: any) {
     await db.tournament.createMany({
       data: newTournaments,
     });
-  } else {
-    console.info('no new tournaments');
-
-    await Promise.all(
-      users.map((user) => {
-        return mailjet.post('send', { version: 'v3.1' }).request({
-          Messages: [
-            {
-              From: {
-                Email: 'theo.letouze44@gmail.com',
-                Name: 'Théo Letouzé',
-              },
-              To: [
-                {
-                  Email: user.email,
-                  Name: user.email,
-                },
-              ],
-              Subject: 'Pas de nouveau tournoi disponible !',
-              HTMLPart:
-                "<p>Bonjour, aucun tournoi n'est disponible sur Tenup pour le moment, peut-être demain ...</p>",
-            },
-          ],
-        });
-      })
-    );
   }
 
   res.status(200).json({ message: 'sent' });
