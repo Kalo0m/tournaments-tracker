@@ -4,6 +4,7 @@ import { findTournaments } from 'find-tournaments';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, unicorn/prefer-module
 const Mailjet = require('node-mailjet');
+
 const db = new PrismaClient();
 
 const mailjet = Mailjet.apiConnect(
