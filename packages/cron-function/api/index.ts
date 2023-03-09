@@ -12,20 +12,34 @@ const mailjet = Mailjet.apiConnect(
   process.env['MJ_APIKEY_PRIVATE'] ?? ''
 );
 
+function format(inputDate: Date) {
+  let date, month, year;
+
+  date = inputDate.getDate();
+  month = inputDate.getMonth() + 1;
+  year = inputDate.getFullYear();
+
+  date = date.toString().padStart(2, '0');
+
+  month = month.toString().padStart(2, '0');
+
+  return `${date}/${month}/${year}`;
+}
+
 export default async function handler(_: any, res: any) {
   const knownTournaments = await db.tournament.findMany({
     select: { id: true },
   });
 
-  const tournaments: Prisma.TournamentCreateInput[] = (
-    await findTournaments()
-  ).results.list.map((tournament) => ({
-    id: tournament.tournoi.id,
-    name: tournament.tournoi.libelle,
-    startDate: new Date(tournament.tournoi.dateDebut.date),
-    endDate: new Date(tournament.tournoi.dateFin.date),
-    city: tournament.tournoi.nomClub,
-  }));
+  const tournaments = (await findTournaments()).results.list.map(
+    (tournament) => ({
+      id: tournament.tournoi.id,
+      name: tournament.tournoi.libelle,
+      startDate: new Date(tournament.tournoi.dateDebut.date),
+      endDate: new Date(tournament.tournoi.dateFin.date),
+      city: tournament.tournoi.nomClub,
+    })
+  );
 
   const newTournaments = tournaments.filter(
     (tournament) =>
@@ -59,9 +73,11 @@ export default async function handler(_: any, res: any) {
               HTMLPart: `<h3>Voici la liste des nouveaux tournois :</h3><ul>${newTournaments
                 .map(
                   (tournament) =>
-                    `<li>${tournament.name} - ${tournament.city}, dates : ${
-                      tournament.startDate.toString().split(' ')[0]
-                    } - ${tournament.endDate.toString().split(' ')[0]}</li>`
+                    `<li>${tournament.name} - ${
+                      tournament.city
+                    }, dates : ${format(tournament.startDate)} - ${format(
+                      tournament.endDate
+                    )}</li>`
                 )
                 .join('')}</ul>`,
             },
